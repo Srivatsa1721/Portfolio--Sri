@@ -92,12 +92,12 @@ html {
 /* Paragraph Styling */
 .intro-text p {
   font-family: 'Plus Jakarta Sans', sans-serif; 
-  font-size: 18px; /* Adjust to match reference */
-  font-weight: 400; /* Keep it light */
-  color: #4a4a4a; /* Softer dark gray for a modern feel */
-  line-height: 1.8; /* Increase line height for better readability */
-  letter-spacing: 1px; /* Slight letter spacing to match reference */
-  max-width: 700px; /* Control width to maintain the structured look */
+  font-size: 18px; 
+  font-weight: 400; 
+  color: #4a4a4a; 
+  line-height: 1.8; 
+  letter-spacing: 1px; 
+  max-width: 700px;
 }
 
 
@@ -108,15 +108,15 @@ html {
 
 /* Avatar */
 .avatar {
-  background-color: skyblue;
-  border-radius: 50%;
+  background: url('boy2.jpg') no-repeat center/cover;
+  border-radius: 50%; 
   width: 230px;
   height: 230px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 250px; 
+  margin-left: 180px; 
   margin-right: auto;
 }
 
@@ -147,46 +147,248 @@ html {
   padding: 80px 20px;
   text-align: center;
 }
-
-/* About Me Section*/
+ 
+/* About Section */
 #about {
   min-height: 60vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Align to left */
   background: white;
-} 
+  padding: 0 12%;
+  text-align: left;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto; /* Ensures consistent alignment */
+}
+
+/* About Heading */
+.about-heading {
+  font-size: 36px;
+  font-weight: bold;
+  color: skyblue;
+  display: inline-block;
+  background: linear-gradient(180deg, rgba(173, 216, 230, 0.3) 60%, rgba(173, 216, 230, 0) 100%);
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  width: fit-content;
+  margin-left: 2%;
+}
+
+/* About Text */
+#about p {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.8;
+  max-width: 800px;
+  margin-bottom: 15px;
+  text-align: left;
+  margin-left: 2%;
+}
+
+/* Container for Text & Image */
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* About Text */
+.about-text {
+  max-width: 600px;
+  text-align: left;
+}
+
+/* About Image */
+.about-image {
+  flex-shrink: 0;
+  width: 300px; 
+  height: auto;
+  margin-left: -40px; 
+}
+
+/* Image Styling */
+.about-img {
+  width: 300px;
+  height: auto;
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+  #about {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text {
+    max-width: 100%;
+  }
+
+  .about-img {
+    width: 250px;
+  }
+}
 
 
-/* Projects Sections */
+/* Projects Section */
 #projects {
   background: white;
   padding: 50px 0;
   min-height: auto;
+  text-align: center;
 }
+
+
+/* Subtext */
+.projects-subtext {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  color: skyblue;
+  font-weight: bold;
+  font-style: italic;
+  text-align: left;
+  margin-left: 19.7%; 
+  margin-top: 10px;
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+  .projects-subtext {
+    text-align: center;
+    margin-left: 0;
+  }
+}
+
+
 
 /* Projects Grid */
 .projects-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two projects per row */
+  gap: 30px;
   justify-content: center;
-  gap: 20px;
   padding: 30px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
+/* Project Item */
 .project-item {
-  background: white;
-  border-radius: 10px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-  width: 250px;
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.project-item:hover {
+  transform: scale(1.05);
 }
 
 .project-item img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Project Overlay */
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  padding: 20px;
+}
+
+.project-item:hover .project-overlay {
+  opacity: 1;
+}
+
+/* Project Title */
+.project-title {
+  font-size: 20px;
+  font-weight: bold;
   margin-bottom: 10px;
 }
+
+/* Project Description */
+.project-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif; 
+  font-size: 16px;
+  font-weight: 400; 
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90%;
+  white-space: normal;
+  line-height: 1.4;
+}
+
+/* Tech Stack */
+.tech-stack {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.tech-stack span {
+  background: white;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Buttons */
+.project-buttons {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+}
+
+
+.github-btn {
+  background: skyblue;
+  color: white;
+  text-align: center;
+}
+
+.github-btn:hover {
+  background: #222;
+}
+
 
 /* Skills Section */
 #skills {
@@ -197,7 +399,7 @@ html {
   align-items: flex-start;
   background: white;
   padding: 0 10%;
-  margin-left: 5%; /* Adjust as needed */
+  margin-left: 5%; 
 }
 
 /* Skills Heading */
@@ -212,7 +414,7 @@ html {
   margin-bottom: 20px;
   text-align: left;
   width: fit-content;
-  margin-left: 5%; /* Adjust to align with Let's Connect */
+  margin-left: 5%; 
 }
 
 /* Skills Grid */
@@ -222,7 +424,7 @@ html {
   gap: 20px;
   justify-content: center;
   max-width: 1000px;
-  margin-left: 5%; /* Moves grid to align with text */
+  margin-left: 5%; 
 }
 
 
@@ -354,7 +556,7 @@ body.menu-open .scroll-down {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 20px; /* Keeps spacing clean */
+    gap: 20px; 
   }
 
   .intro-text {
